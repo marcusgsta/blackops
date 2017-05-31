@@ -1,0 +1,36 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    
+<div class="row">
+    <h3>Hyra ut produkter</h3>
+    {% if message is defined %}
+     {{ message|safe }}
+    {% endif %}
+    <form role="form" method="POST" action="{{ url_for('rent_products') }}">
+        <div class="form-group">
+            <label for="employee">Namn på personal: </label>
+            <select name="employee" class="form-control">
+             {% for n in range(staff_list|length) %}
+              <option value="{{ staff_list[n].id }}">{{ staff_list[n].name }}</option>
+               {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="p_select">Namn på produkt: </label>
+            <select name="p_select" class="form-control">
+             {% for n in range(stock_list|length) %}
+              <option value="{{ stock_list[n].id }}">{{ stock_list[n].name }}</option>
+              {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amount">Mängd: </label>
+            <input type="number" name="amount" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-default">Hyr ut</button>
+    </form>
+    </div>
+</div>
+
+{% include 'footer.html' %}

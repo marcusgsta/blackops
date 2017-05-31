@@ -1,0 +1,48 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="row">
+        <div class="col-md-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Namn</th>
+                <th>Klassifikation</th>
+                <th>Mängd</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+                {{ stock_table|safe }}
+            </tbody>
+          </table>
+        </div>
+    </div>
+{% if message is defined %}
+{{ message|safe }}
+{% endif %}
+<div class="row">
+    <h3>Lägg till produkter i lagret</h3>
+    <form role="form" method="POST" action="{{ url_for('stock') }}">
+               <div class="form-group">
+            <label for="p_select">Namn på produkt: </label>
+            <select name="p_select" class="form-control">
+             {% for n in range(product_list|length) %}
+              <option value="{{ product_list[n].id }}">{{ product_list[n].name }}</option>
+              {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Mängd: </label>
+            <input type="number" name="amount" class="form-control" />
+        </div>
+          
+
+        <button type="submit" class="btn btn-default">Lägg till</button>
+    </form>
+
+    </div>
+</div>
+{% include 'footer.html' %}

@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+
+    {% if message is defined %}
+    {{ message|safe }}
+    {% endif %}
+<div class="row">
+    <h3>Ändra klassificeringsnivå</h3>
+    <form role="form" method="POST" action="{{ url_for('change_staff') }}">
+        <div class="form-group">
+            <label for="employee">Ansatta (Namn: klassificering)</label>
+            <select name="employee" class="form-control">
+             {% for n in range(staff_list|length) %}
+              <option value="{{ staff_list[n].id }}">{{ staff_list[n].name }} :  {{ staff_list[n].role }}</option>
+               {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="role">Ändra till </label>
+            <select name="role" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default">Ändra</button>
+    </form>
+    </div>
+</div>
+
+{% include 'footer.html' %}

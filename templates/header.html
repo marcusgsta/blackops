@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Black Ops Supplies</title>
+
+    <link href="{{ url_for('static', filename='lib/bootswatch.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+
+</head>
+
+<body role="document">
+   
+ <!-- Navbar
+      ================================================== -->
+
+            <div class="bs-component">
+              <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/home">Black Ops Supplies</a>
+                  </div>
+
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                    <ul class="nav navbar-nav">
+                      <li {%- if request.path == "/about" %} class="active" {% endif %}><a href="{{ url_for('about') }}">Om <span class="sr-only">(current)</span></a></li>
+
+                      <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produkter<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ url_for('products') }}">Alla produkter</a></li>
+                          <li><a href="{{ url_for('categories') }}">Kategorier</a></li>
+                        </ul>
+                      </li>
+
+
+                      <li class="dropdown">
+                        <a href="#" sclass="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Lager och uthyrning <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ url_for('stock') }}">Lager</a></li>
+                            <li class="divider"></li>
+                          <li><a href="{{ url_for('rented_products') }}">Uthyrda produkter</a></li>
+                          <li><a href="{{ url_for('rent_products') }}">Hyra ut produkter</a></li>
+
+                        </ul>
+                      </li>
+                    
+                        
+                      
+                      <li class="dropdown">
+                        <a href="#" sclass="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Personal <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ url_for('staff') }}">Personal</a></li>
+                          <li><a href="{{ url_for('change_staff') }}">Ändra klassificering</a></li>
+                        </ul>
+                      </li>
+
+             
+                  </div>
+                </div>
+              </nav>
+            </div><!-- /example -->
+            {{ user }}

@@ -1,0 +1,19 @@
+body {
+    background-image: url("../images/f4f2af77.png");
+}
+
+.container {
+    width: 70%;
+}
+
+.container p {
+    font-size:1.2em;
+}
+
+.btn-logout {
+    float:right;
+    margin:15px;
+}
+
+.specific {
+    display:none;}

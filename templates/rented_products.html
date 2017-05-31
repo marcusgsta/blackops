@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+
+<div class="container" role="main">
+    <div class="row">
+        <div class="col-md-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Namn på personal</th>
+                <th>Material</th>
+                <th>Mängd</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+                {{ rented_products_table|safe }}
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+</div>
+{% include 'footer.html' %}
