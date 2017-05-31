@@ -1,6 +1,8 @@
 # blackops
 
-Programmed in Python with Flask and Jinja2.
+Programmed in Python with Flask and Jinja2. Styling with Bootstrap.
+
+Database: SQLite, with SQLAlchemy.
 
 Administration pages for renting out of different types of material.
 
