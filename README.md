@@ -1,6 +1,6 @@
 # blackops
 
-Programmed in Python with Flask and Jinja2.
+Programmed in Python with Flask and Jinja2. Styling with Bootstrap.
 
 Administration pages for renting out of different types of material.
 
